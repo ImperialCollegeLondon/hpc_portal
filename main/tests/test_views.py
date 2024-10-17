@@ -193,7 +193,7 @@ class TestJobTypeViews(TestCase):
         response = self.client.get("/job_type/")
         self.assertEqual(response.status_code, 200)
         form = response.context["form"]
-        choices = form.fields["resources"].choices.choices_func()
+        choices = list(form.fields["resources"].choices)
         self.assertIn((1, label), choices)
 
     def test_post(self):

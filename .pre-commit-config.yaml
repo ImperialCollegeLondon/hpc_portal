@@ -1,16 +1,7 @@
 repos:
-  - repo: https://github.com/timothycrosley/isort
-    rev: "5.10.1"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
     hooks:
-      - id: isort
-        additional_dependencies: [toml]
-  - repo: https://github.com/psf/black
-    rev: "22.10.0"
-    hooks:
-      - id: black
-        exclude: "main/migrations/"
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
-      - id: flake8
-        exclude: main/migrations/
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
